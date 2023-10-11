@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
+        {% include 'parts/meta.html.twig' %}
+        {{ encore_entry_link_tags('app') }}
+        {% block styles %}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bg-white d-flex flex-column min-vh-100">
+
+        <div id="head" class="container-fluid">
+            <div class="row bg-primary p-3">
+                <div class="col-auto d-flex align-items-center text-white">
+                    {{ cache.item('first_name').get() ~ ' ' ~ cache.item('last_name').get() }}
+                </div>
+                <a href="{{ path('authors_list') }}" class="header-buttons col-auto ms-auto">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+                <a href="{{ path('profile') }}" class="header-buttons col-auto ms-3">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <a href="{{ path('auth_logout') }}" class="header-buttons col-auto ms-3">
+                    <i class="fa fa-power-off" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+
+        <div id="main" class="container-fluid d-flex flex-column flex-grow-1 py-3">
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- Footer -->
+        {{ encore_entry_script_tags('app') }}
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>

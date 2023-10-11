@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="row flex-grow-1 align-items-center justify-content-center">
+        <div class="col-lg-9 col-md-12">
+            {{ form_start(form, {'attr': {'class': 'card bg-white border-1 mb-0'}}) }}
+                <div class="card-header bg-primary text-white">
+                    Book: {{ id }}
+                </div>
+                <div class="card-body d-flex flex-column px-lg-5 py-lg-5">
+                    {{ form_row(form.author) }}
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.release_date) }}
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.isbn) }}
+                    {{ form_row(form.format) }}
+                    {{ form_row(form.number_of_pages) }}
+                </div>
+                <div class="card-footer bg-primary">
+                    <button class="btn btn-info" type="submit">Create</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

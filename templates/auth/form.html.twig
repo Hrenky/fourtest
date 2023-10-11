@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include 'parts/meta.html.twig' %}
+    {{ encore_entry_link_tags('app') }}
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+
+<!-- Page content -->
+<div class="main-content">
+    <div class="container">
+        <div class="row vh-100 align-items-center justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card bg-white border-1 mb-0">
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <div class="text-center text-uppercase text-lg-center mb-4">
+                            <small>Sign in</small>
+                        </div>
+                        {% if not error is empty %}
+                            <div class="text-danger text-center mb-3">
+                                {{ error }}
+                            </div>
+                        {% endif %}
+                        {{ form(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+{{ encore_entry_script_tags('app') }}
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

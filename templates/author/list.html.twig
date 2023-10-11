@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="row flex-grow-1 align-items-center justify-content-center">
+        <div class="col-lg-9 col-md-12">
+            <a href="{{ path('books_single') }}" class="btn btn-success mb-3">
+                New book
+            </a>
+            <div class="card bg-white border-1 mb-0">
+                <div class="card-header bg-primary text-white">
+                    Authors
+                </div>
+                <div class="card-body d-flex flex-column px-lg-5 py-lg-5">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Birthday</th>
+                            <th>Place of birth</th>
+                            <th>View</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in items %}
+                            <tr>
+                                <td>{{ item['first_name'] ~ ' ' ~ item['last_name'] }}</td>
+                                <td>{{ item['gender'] }}</td>
+                                <td>{{ item['birthday']|date('m.d.Y') }}</td>
+                                <td>{{ item['place_of_birth'] }}</td>
+                                <td>
+                                    <a href="{{ path('authors_single', {'author': item['id']}) }}" class="btn btn-info">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    {% if item['form'] is defined %}
+                                        {{ form_start(item['form']) }}
+                                            <button class="btn btn-danger" type="submit">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        {{ form_end(item['form']) }}
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="card-footer bg-primary">
+                    <div class="row justify-content-center">
+                        {% if total_pages > 1 %}
+                            <a href="{{ path('authors_list', {'page': 1}) }}" class="page-item col-auto">First</a>
+                            {% for page in 2..total_pages|filter(page => page < total_pages) %}
+                                <a href="{{ path('authors_list', {'page': page}) }}" class="page-item col-auto ms-3">{{ page }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

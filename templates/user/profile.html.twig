@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="row flex-grow-1 align-items-center justify-content-center">
+        <div class="col-lg-5 col-md-7">
+            <div class="card bg-white border-1 mb-0">
+                <div class="card-header bg-primary text-white">
+                    Profile
+                </div>
+                <div class="card-body d-flex flex-column px-lg-5 py-lg-5">
+                    <div class="row">
+                        <div class="col-3">First name:</div>
+                        <div class="col-9">{{ first_name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Last name:</div>
+                        <div class="col-9">{{ last_name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Email:</div>
+                        <div class="col-9">{{ email }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">Gender:</div>
+                        <div class="col-9">{{ gender }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

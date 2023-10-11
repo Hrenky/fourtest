@@ -1,0 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.header-buttons, .page-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 37px;
+  border-radius: 5px;
+  border: 1px solid white;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+.header-buttons:hover, .page-item:hover {
+  color: white;
+  background-color: #0d6efd;
+}
+
+/*# sourceMappingURL=app.css.map */
