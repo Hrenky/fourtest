@@ -11,8 +11,6 @@
 
 <ul>
 <ol>1. <code>composer install</code> and <code>npm install</code> to install all the packages</ol>
-<ol>2. copy .env.example to .env just to have an .env file</ol>
-<ol>3. run <code>php artisan key:generate</code></ol>
-<ol>4. run <code>npm run build</code> to create all css and js files</ol>
-<ol>5. run <code>php artisan server</code> and go to the link it gives you</ol>
+<ol>2. run <code>npm run dev</code> to create all css and js files</ol>
+<ol>3. run <code>symfony server:start</code> and go to the link it gives you</ol>
 </ul>
